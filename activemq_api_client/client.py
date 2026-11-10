@@ -6,8 +6,8 @@ from .connector import Connector
 
 
 class ActiveMQClient:
-    def __init__(self, url: str, username: str, password: str, retries: int = 3, backoff_factor: float = 0.3):
-        self._connector = Connector(url, username, password, retries, backoff_factor)
+    def __init__(self, url: str, username: str, password: str, retries: int = 3, backoff_factor: float = 0.3, session = None):
+        self._connector = Connector(url, username, password, retries, backoff_factor, session)
 
     def get_connection_details(self, client_id: str) -> Union[dict, None]:
         connections = self.get_connections_details()
