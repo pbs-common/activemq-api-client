@@ -7,7 +7,7 @@ from typing import Optional
 
 class Connector:
 
-    def __init__(self, url: str, username: str, password: str, session = None, retries: int = 3, backoff_factor: float = 0.3):
+    def __init__(self, url: str, username: str, password: str, retries: int = 3, backoff_factor: float = 0.3, session = None):
         self._url = url
         self._session = requests.Session() if session is None else session
         self._session.auth = HTTPBasicAuth(username, password)
